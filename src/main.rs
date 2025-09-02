@@ -8,16 +8,16 @@ use metronome::Metronome;
 
 #[derive(Debug, Clone, Copy, ValueEnum)]
 enum ClickSound {
-    Soft,
-    Medium,
-    Hard,
+    C,
+    B,
+    A,
 }
 impl ToString for ClickSound {
     fn to_string(&self) -> String {
         match self {
-            ClickSound::Soft => "soft".to_string(),
-            ClickSound::Medium => "medium".to_string(),
-            ClickSound::Hard => "hard".to_string(),
+            ClickSound::C => "c".to_string(),
+            ClickSound::B => "b".to_string(),
+            ClickSound::A => "a".to_string(),
         }
     }
 }
@@ -32,7 +32,7 @@ struct Args {
     #[arg(short, long, default_value_t = 4)]
     division: u8,
 
-    #[arg(long, default_value_t = ClickSound::Soft)]
+    #[arg(long, default_value_t = ClickSound::C)]
     sound: ClickSound,
 
     #[arg(short, long, default_value_t = 50)]
@@ -55,16 +55,16 @@ fn main() {
     };
 
     let click = match args.sound {
-        ClickSound::Hard => {
-            base_path.push("/Click/hi.wav");
+        ClickSound::A => {
+            base_path.push("/rust-click/a.wav");
             base_path.into_string().unwrap()
         }
-        ClickSound::Medium => {
-            base_path.push("/Click/mid.wav");
+        ClickSound::B => {
+            base_path.push("/Click/b.wav");
             base_path.into_string().unwrap()
         }
-        ClickSound::Soft => {
-            base_path.push("/Click/lo.wav");
+        ClickSound::C => {
+            base_path.push("/Click/c.wav");
             base_path.into_string().unwrap()
         }
     };
