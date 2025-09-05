@@ -60,11 +60,11 @@ fn main() {
             base_path.into_string().unwrap()
         }
         ClickSound::B => {
-            base_path.push("/Click/b.wav");
+            base_path.push("/rust-click/b.wav");
             base_path.into_string().unwrap()
         }
         ClickSound::C => {
-            base_path.push("/Click/c.wav");
+            base_path.push("/rust-click/c.wav");
             base_path.into_string().unwrap()
         }
     };
